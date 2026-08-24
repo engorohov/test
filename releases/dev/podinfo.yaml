@@ -1,0 +1,40 @@
+replicaCount: 3
+
+image:
+  tag: "latest"
+  pullPolicy: Always
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 64Mi
+  requests:
+    cpu: 50m
+    memory: 32Mi
+
+podinfo:
+  level: debug
+  message: "DEV v3 - diff!"
+  ui:
+    color: "#ffd43b"     # красный для дева
+
+ingress:
+  enabled: true
+  host: podinfo-dev.local
+
+postgresql:
+  enabled: false
+  imageRegistry: docker.io
+  imageRepository: bitnamilegacy/postgresql
+  imageTag: 15.1.0-debian-11-r0
+  auth:
+    username: podinfo
+    password: changeme
+    database: podinfo
+  persistence:
+    enabled: false
+  podSecurityContext:
+    enabled: false
+  containerSecurityContext:
+    enabled: false
+

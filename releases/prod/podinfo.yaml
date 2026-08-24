@@ -1,0 +1,22 @@
+replicaCount: 3
+
+image:
+  pullPolicy: IfNotPresent
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 256Mi
+  requests:
+    cpu: 200m
+    memory: 128Mi
+
+podinfo:
+  level: info
+  message: "PRODUCTION environment"
+  ui:
+    color: "#51cf66"     # зелёный для прода
+
+ingress:
+  enabled: true
+  host: podinfo.local

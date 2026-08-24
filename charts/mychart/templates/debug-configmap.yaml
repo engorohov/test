@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "mychart.debugConfigMapName" . }}
+  labels:
+    {{- include "mychart.labels" . | nindent 4 }}
+
+data:
+  release_name: {{ .Release.Name }}
+  release_namespace: {{ .Release.Namespace }}
+  release_revision: {{ .Release.Revision | quote }}
+  image_full: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+  service_type: {{ .Values.service.type | upper }}
+  replica_count: {{ .Values.replicaCount | int }}
+  allowed_hosts: |
+    {{- range .Values.allowedHosts }}
+    - {{ . | quote }}
+    {{- end }}
+
+  env: |
+    {{- range $key, $value := .Values.envVars }}
+    {{ $key }}={{ $value }}
+    {{- end }}
+
+{{- if .Values.debug.enabled }}
+  debug_mode: "ON"
+  {{- if .Values.debug.verbose }}
+  log_level: "DEBUG"
+  {{- else }}
+  log_level: "INFO"
+  {{- end }}
+{{- end }}

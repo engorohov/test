@@ -1,0 +1,46 @@
+replicaCount: 1
+
+fullnameOverride: "demo"
+
+image:
+  repository: ghcr.io/stefanprodan/podinfo
+  tag: ""
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 9898
+
+ingress:
+  enabled: false
+  className: ""
+  host: podinfo.local
+  path: /
+
+resources:
+  limits:
+    cpu: 200m
+    memory: 128Mi
+  requests:
+    cpu: 50m
+    memory: 64Mi
+
+podinfo:
+  level: info
+  message: "Hello from my Helm chart!"
+  ui:
+    color: "#007acc"
+
+postgresql:
+  enabled: true
+  image:
+    registry: docker.io
+    repository: bitnamilegacy/postgresql
+    tag: 15.1.0-debian-11-r0
+  auth:
+    username: podinfo
+    password: changeme
+    database: podinfo
+  primary:
+    persistence:
+      enabled: false

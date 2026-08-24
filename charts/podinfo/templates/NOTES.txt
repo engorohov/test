@@ -1,0 +1,9 @@
+Подинфо успешно установлен!
+
+Чтобы получить доступ:
+  kubectl port-forward -n {{ .Release.Namespace }} svc/{{ include "podinfo.fullname" . }} 9898:{{ .Values.service.port }}
+
+Затем открой http://localhost:9898 в браузере.
+
+Версия приложения: {{ .Chart.AppVersion }}
+Версия чарта: {{ .Chart.Version }}

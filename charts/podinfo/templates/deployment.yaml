@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "podinfo.fullname" . }}
+  labels:
+    {{- include "podinfo.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "podinfo.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "podinfo.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 9898
+              protocol: TCP
+          command:
+            - ./podinfo
+            - --port=9898
+            - --level={{ .Values.podinfo.level }}
+            - --ui-color={{ .Values.podinfo.ui.color }}
+            - --ui-message={{ .Values.podinfo.message | quote }}
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /readyz
+              port: http
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          env:
+            - name: PODINFO_DB_HOST
+              value: {{ .Release.Name }}-postgresql
+            - name: PODINFO_DB_USER
+              value: {{ .Values.postgresql.auth.username }}
+            - name: PODINFO_DB_NAME
+              value: {{ .Values.postgresql.auth.database }}
+            - name: PODINFO_DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}-postgresql
+                  key: password

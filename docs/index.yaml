@@ -3,17 +3,17 @@ entries:
   podinfo:
   - apiVersion: v2
     appVersion: 6.5.0
-    created: "2026-08-25T08:52:54.872426529Z"
+    created: "2026-08-25T09:00:04.102372366Z"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
       repository: oci://registry-1.docker.io/bitnamicharts
       version: 15.5.38
     description: Microservice demo app
-    digest: 67540271977169677dc0323b3c050cea10515e073fc45c454068798d7e53b9de
+    digest: 58fa69ec0a8bebbb0b614541d0778d1369c32738cd758bd76b6ca4c88850b83f
     name: podinfo
     type: application
     urls:
-    - podinfo-0.1.0.tgz
-    version: 0.1.0
-generated: "2026-08-25T08:52:54.855763049Z"
+    - podinfo-0.2.0.tgz
+    version: 0.2.0
+generated: "2026-08-25T09:00:04.084986665Z"

@@ -23,7 +23,7 @@ ingress:
   host: podinfo-dev.local
 
 postgresql:
-  enabled: false
+  enabled: true
   imageRegistry: docker.io
   imageRepository: bitnamilegacy/postgresql
   imageTag: 15.1.0-debian-11-r0

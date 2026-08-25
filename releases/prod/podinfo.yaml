@@ -1,22 +1,27 @@
-replicaCount: 3
+replicaCount: 2
 
 image:
-  pullPolicy: IfNotPresent
+  tag: "latest"
+  pullPolicy: Always
 
 resources:
   limits:
-    cpu: 500m
-    memory: 256Mi
+    cpu: 100m
+    memory: 64Mi
   requests:
-    cpu: 200m
-    memory: 128Mi
+    cpu: 50m
+    memory: 32Mi
 
 podinfo:
-  level: info
-  message: "PRODUCTION environment"
+  level: debug
+  message: "PROD v1 - live!"
   ui:
-    color: "#51cf66"     # зелёный для прода
+    color: "#3498db"     # Синий цвет для прода
 
 ingress:
   enabled: true
-  host: podinfo.local
+  host: podinfo-prod.local
+
+postgresql:
+  enabled: false        # Выключаем базу на проде по фиче condition!
+

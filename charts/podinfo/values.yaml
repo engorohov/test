@@ -43,4 +43,4 @@ postgresql:
     database: podinfo
   primary:
     persistence:
-      enabled: false
+      enabled: true

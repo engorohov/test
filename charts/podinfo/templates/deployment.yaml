@@ -39,6 +39,7 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
+{{- if .Values.postgresql.enabled }}
             - name: PODINFO_DB_HOST
               value: {{ .Release.Name }}-postgresql
             - name: PODINFO_DB_USER
@@ -50,3 +51,6 @@ spec:
                 secretKeyRef:
                   name: {{ .Release.Name }}-postgresql
                   key: password
+{{- end }}
+            - name: PODINFO_UI_COLOR
+              value: {{ .Values.podinfo.ui.color | quote }}

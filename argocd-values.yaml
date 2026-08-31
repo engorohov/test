@@ -1,0 +1,16 @@
+global:
+  domain: argocd.local
+
+server:
+  service:
+    type: ClusterIP
+  insecure: true
+
+configs:
+  params:
+    server.insecure: "true"
+
+notifications:
+  enabled: false
+dex:
+  enabled: false

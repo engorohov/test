@@ -1,12 +1,6 @@
-message: "DEV via ArgoCD"
-ui:
-  color: "#ff6b6b"
-resources:
-  limits:
-    cpu: 100m
-    memory: 64Mi
-  requests:
-    cpu: 50m
-    memory: 32Mi
+podinfo:
+  message: "DEV via ArgoCD"
+  ui:
+    color: "#ff6b6b"
 postgresql:
   enabled: false

@@ -1,7 +1,6 @@
-podinfo:
-  message: "DEV via ArgoCD"
-  ui:
-    color: "#ff6b6b"
+message: "DEV via ArgoCD"
+ui:
+  color: "#ff6b6b"
 resources:
   limits:
     cpu: 100m

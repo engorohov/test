@@ -1,0 +1,11 @@
+replicaCount: 1
+ui:
+  color: "#ff6b6b"
+  message: "DEV via ArgoCD"
+resources:
+  limits:
+    cpu: 100m
+    memory: 64Mi
+  requests:
+    cpu: 50m
+    memory: 32Mi

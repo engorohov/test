@@ -9,3 +9,5 @@ resources:
   requests:
     cpu: 50m
     memory: 32Mi
+postgresql:
+  enabled: false

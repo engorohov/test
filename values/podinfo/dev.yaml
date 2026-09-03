@@ -1,5 +1,5 @@
 podinfo:
-  message: "GITOPS IS WORKING"
+  message: "GITOPS IS PERFECT"
   ui:
     color: "#ff6b6b"
 postgresql:

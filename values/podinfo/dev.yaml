@@ -1,5 +1,5 @@
 podinfo:
-  message: "DEV via ArgoCD"
+  message: "GITOPS IS WORKING"
   ui:
     color: "#ff6b6b"
 postgresql:

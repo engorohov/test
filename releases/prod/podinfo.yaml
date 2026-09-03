@@ -1,27 +1,7 @@
-replicaCount: 2
-
-image:
-  tag: "latest"
-  pullPolicy: Always
-
-resources:
-  limits:
-    cpu: 100m
-    memory: 64Mi
-  requests:
-    cpu: 50m
-    memory: 32Mi
-
+replicaCount: 3
 podinfo:
-  level: debug
-  message: "PROD v1 - live!"
+  message: "PROD via ArgoCD"
   ui:
-    color: "#3498db"     # Синий цвет для прода
-
-ingress:
-  enabled: true
-  host: podinfo-prod.local
-
+    color: "#51cf66"
 postgresql:
-  enabled: false        # Выключаем базу на проде по фиче condition!
-
+  enabled: false

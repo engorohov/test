@@ -1,40 +1,7 @@
-replicaCount: 3
-
-image:
-  tag: "latest"
-  pullPolicy: Always
-
-resources:
-  limits:
-    cpu: 100m
-    memory: 64Mi
-  requests:
-    cpu: 50m
-    memory: 32Mi
-
+replicaCount: 1
 podinfo:
-  level: debug
-  message: "DEV v3 - diff!"
+  message: "DEV via ArgoCD"
   ui:
-    color: "#ffd43b"     # красный для дева
-
-ingress:
-  enabled: true
-  host: podinfo-dev.local
-
+    color: "#ff6b6b"
 postgresql:
-  enabled: true
-  imageRegistry: docker.io
-  imageRepository: bitnamilegacy/postgresql
-  imageTag: 15.1.0-debian-11-r0
-  auth:
-    username: podinfo
-    password: changeme
-    database: podinfo
-  persistence:
-    enabled: false
-  podSecurityContext:
-    enabled: false
-  containerSecurityContext:
-    enabled: false
-
+  enabled: false

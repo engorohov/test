@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: root
+  namespace: argo
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io   # при удалении root удалит все дочерние аппы
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/engorohov/test.git
+    targetRevision: main
+    path: apps                # папка внутри репозитория, где лежат под-аппы
+    directory:
+      recurse: true
+  destination:
+    name: in-cluster
+    namespace: argo
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

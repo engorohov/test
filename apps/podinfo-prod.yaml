@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: podinfo-prod
+  namespace: argo
+spec:
+  project: default
+  sources:
+    - repoURL: https://github.io
+      chart: podinfo
+      targetRevision: "*"
+      helm:
+        valueFiles:
+          - \$values/releases/prod/podinfo.yaml
+    - repoURL: https://github.com
+      targetRevision: main
+      ref: values
+  destination:
+    name: in-cluster
+    namespace: podinfo-prod
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

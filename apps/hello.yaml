@@ -10,7 +10,7 @@ spec:
     targetRevision: main
     path: manifests/hello   # ИСПРАВЛЕННЫЙ ПУТЬ
   destination:
-    server: https://default.svc
+    server: in-kluster
     namespace: hello
   syncPolicy:
     automated:

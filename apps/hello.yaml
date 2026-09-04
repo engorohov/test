@@ -6,11 +6,11 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/engoroho/test.git
+    repoURL: https://github.com/engorohov/test.git
     targetRevision: main
-    path: install/manifests/hello   # Путь к манифестам hello в вашем репозитории
+    path: manifests/hello   # ИСПРАВЛЕННЫЙ ПУТЬ
   destination:
-    server: https://kubernetes.default.svc
+    server: https://default.svc
     namespace: hello
   syncPolicy:
     automated:

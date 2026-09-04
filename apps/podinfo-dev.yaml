@@ -11,7 +11,7 @@ spec:
       targetRevision: "*"
       helm:
         valueFiles:
-          - \$values/releases/dev/podinfo.yaml
+          - $values/releases/dev/podinfo.yaml
     - repoURL: https://github.com/engorohov/test.git
       targetRevision: main
       ref: values

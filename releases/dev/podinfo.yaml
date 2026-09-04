@@ -1,6 +1,6 @@
 replicaCount: 1
 podinfo:
-  message: "DEV via ArgoCD"
+  message: "DEV via ArgoCD v2"
   ui:
     color: "#ff6b6b"
 postgresql:

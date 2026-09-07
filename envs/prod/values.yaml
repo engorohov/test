@@ -1,0 +1,4 @@
+replicaCount: 2
+ui:
+  color: "#ffd43b"
+  message: "STAGING from git generator"

@@ -1,0 +1,4 @@
+replicaCount: 3
+ui:
+  color: "#51cf66"
+  message: "PROD from git generator"

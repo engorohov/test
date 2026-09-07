@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: migrate
+  namespace: podinfo-wave-demo
+  annotations:
+    argocd.argoproj.io/hook: PreSync # Запуск ДО основного синка
+    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation # Удалить старый под миграции перед запуском нового
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: migrate
+          image: busybox:1.36
+          command: ["sh", "-c", "echo 'migrating database...'; sleep 7; echo 'done'"]

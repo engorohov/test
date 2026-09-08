@@ -1,4 +1,4 @@
-replicaCount: 1
+replicaCount: -5
 podinfo:
   message: "DEV via ArgoCD v2"
   ui:

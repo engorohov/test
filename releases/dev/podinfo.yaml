@@ -3,5 +3,7 @@ podinfo:
   message: "DEV via ArgoCD v2"
   ui:
     color: "#ff6b6b"
+image:
+  tag: "broken-leg-version"
 postgresql:
   enabled: false

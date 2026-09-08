@@ -1,4 +1,4 @@
-replicaCount: -5
+replicaCount: "crush"
 podinfo:
   message: "DEV via ArgoCD v2"
   ui:

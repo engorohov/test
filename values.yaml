@@ -1,0 +1,18 @@
+USER-SUPPLIED VALUES:
+configs:
+  params:
+    server.insecure: "true"
+dex:
+  enabled: false
+global:
+  domain: argocd.local
+notifications:
+  enabled: false
+repoServer:
+  dnsPolicy: Default
+  livenessProbe:
+    enabled: false
+server:
+  insecure: true
+  service:
+    type: ClusterIP

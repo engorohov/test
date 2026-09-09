@@ -1,0 +1,20 @@
+# Module 10 - ArgoCD Installation
+
+Репозиторий содержит конфигурацию для развертывания инстанса ArgoCD в кастомном неймспейсе `argo`.
+
+## Инструкция по установке с нуля
+
+1. Добавляем официальный Helm-репозиторий проекта Argo:
+```bash
+helm repo add argocd https://github.io
+helm repo update
+```
+
+2. Устанавливаем ArgoCD одной командой, используя конфигурационный файл из этого репозитория:
+```bash
+helm install argocd argocd/argo-helm -n argo --create-namespace -f values.yaml
+```
+
+3. Запускаем GitOps-конвейер через применение корневого манифеста (App-of-Apps) из нашего второго репозитория:
+```bash
+kubectl apply -f https://https://github.com/engorohov/module_10

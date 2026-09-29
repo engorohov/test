@@ -5,3 +5,6 @@ podinfo:
     color: "#ff6b6b"
 postgresql:
   enabled: false
+extraEnvs:
+    - name: OPENTELEMETRY_ENDPOINT
+      value: "tempo.monitoring.svc.cluster.local:4317"

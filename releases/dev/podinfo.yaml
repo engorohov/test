@@ -6,5 +6,9 @@ podinfo:
 postgresql:
   enabled: false
 extraEnvs:
-    - name: OPENTELEMETRY_ENDPOINT
-      value: "tempo.monitoring.svc.cluster.local:4317"
+  - name: OTEL_EXPORTER_OTLP_ENDPOINT
+    value: "http://tempo.monitoring.svc.cluster.local:4317"
+  - name: OTEL_SERVICE_NAME
+    value: "podinfo-dev"
+  - name: OTEL_TRACES_SAMPLER
+    value: "parentbased_always_on"
